@@ -1,0 +1,30 @@
+[{
+        "lofi_number": 2,
+        "location": "Front Door (South)",
+        "type": "door",
+        "status": "open",
+        "should_be": ["close", "open"],
+        "history": [{
+            "action": "open",
+            "time": "2015-12-21T23:24:15.557Z",
+        }, {
+            "action": "close",
+            "time": "2015-12-21T23:20:15.557Z",
+        }]
+    }, {
+        "lofi_number": 10,
+        "location": "Office (South)",
+        "type": "window",
+        "status": "unknown",
+        "error": "Transmission error.",
+        "should_be": ["close"],
+        "history": [{
+            "action": "unknown",
+            "time": "2015-12-21T23:24:15.557Z",
+        }, {
+            "action": "close",
+            "time": "2015-12-21T23:20:15.557Z",
+        }]
+    }
+
+]
