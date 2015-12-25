@@ -1,23 +1,23 @@
 [{
     "lofi_number": 2,
+    "location_number": 2,
     "location": "Front Door (South)",
     "type": "door",
-    "status": "opened",
-    "should_be": ["closed"],
+    "status": "unknown",
     "history": [{
-        "action": "opened",
+        "action": "open",
         "time": "2015-12-21T23:24:15.557Z"
     }, {
         "action": "closed",
         "time": "2015-12-21T23:20:15.557Z"
     }]
 }, {
-    "lofi_number": 10,
-    "location": "Office (South)",
-    "type": "window",
+    "lofi_number": 1,
+    "location_number": 3,
+    "location": "Living Room (West)",
+    "type": "door",
     "status": "unknown",
     "error": "Transmission error.",
-    "should_be": ["closed"],
     "history": [{
         "action": "unknown",
         "time": "2015-12-21T23:24:15.557Z"
@@ -27,10 +27,10 @@
     }]
 },{
     "lofi_number": 4,
-    "location": "Living Room Window (East)",
+    "location_number": 16,
+    "location": "East Bedroom",
     "type": "window",
     "status": "closed",
-    "should_be": ["closed", "opened"],
     "history": [{
         "action": "unknown",
         "time": "2015-12-21T23:24:15.557Z"
