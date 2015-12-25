@@ -8,10 +8,10 @@
 	.st2{fill:#FFFFFF;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
 	.st3{fill:#FFFFFF;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
   .open {
-  stroke: #ff0000;
+  stroke: #dd0000;
   }
   .closed {
-  stroke: #000000;
+  stroke: #00cc00;
   }
   .unknown {
   stroke: orange;

@@ -94,7 +94,7 @@ process.umask = function() { return 0; };
 },{}],2:[function(require,module,exports){
 // Browserify command to build client.js:
 //     browserify -t [ babelify --presets [ react ] ] client.js -o bundle.js
-var server = 'localhost',
+var server = 'bendito',
     port = '8080',
     WebSocket = require('ws'),
     ws = new WebSocket('ws://' + server + ':' + port),
@@ -170,14 +170,14 @@ var StatusList = React.createClass({
       var statusClass = "";
       if (lofi.status == "unknown") {
         statusClass = "warning";
-        // Makes sure that the should_be property exists in the JSON and that the status isn't an
-        // allowed value.
-      } else if (lofi.hasOwnProperty("should_be") && lofi.should_be.indexOf(lofi.status) === -1) {
-          statusClass = "danger";
-        }
+      } else if (lofi.status == "open") {
+        statusClass = "danger";
+      } else if (lofi.status == "closed") {
+        statusClass = "success";
+      }
       return React.createElement(
         'tr',
-        { key: lofi.lofi_number, className: statusClass },
+        { key: lofi.lofi_number + 's' + lofi.lofi_switch, className: statusClass },
         React.createElement(
           'td',
           null,
@@ -229,6 +229,7 @@ var StatusList = React.createClass({
     );
   }
 });
+
 // Putting together our component and telling React to render it as DOM.
 // We are saying to React, "Render RawData inside the element with ID 'example'."
 ReactDOM.render(React.createElement(StatusList, null), document.getElementById('example'));

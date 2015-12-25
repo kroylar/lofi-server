@@ -1,35 +1,41 @@
 [{
     "lofi_number": "1",
+    "lofi_switch": "0",
     "location_number": "3",
     "location": "Living Room (West)",
     "type": "window",
-    "status": "open"
+    "status": "unknown"
 }, {
     "lofi_number": "2",
+    "lofi_switch": "0",
     "location_number": "19",
     "location": "Dining Room Door",
     "type": "door",
-    "status": "unknown"
+    "status": "closed"
 }, {
     "lofi_number": "3",
+    "lofi_switch": "0",
     "location_number": "12",
     "location": "Washroom Door",
     "type": "door",
     "status": "unknown"
 }, {
     "lofi_number": "4",
+    "lofi_switch": "0",
     "location_number": "16",
     "location": "East Bedroom",
     "type": "window",
     "status": "unknown"
 }, {
     "lofi_number": "5",
+    "lofi_switch": "0",
     "location_number": "1",
     "location": "Front Door (North)",
     "type": "door",
-    "status": "unknown"
+    "status": "open"
 }, {
     "lofi_number": "5",
+    "lofi_switch": "1",
     "location_number": "2",
     "location": "Front Door (South)",
     "type": "door",

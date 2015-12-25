@@ -1,12 +1,14 @@
 // Run this server with: node server.js
 
-var filename = "../example.json",
+var filename = "../master.json",
     port     = 8080,
     wsserv   = require('ws').Server,
     wss      = new wsserv({port: port}),
     fs       = require('fs'),
     ee       = require('event-emitter'),
-    emitter  = ee({}), listener;
+    emitter  = ee({}), listener,
+    csvParse = require('csv-parse'),
+    YAML     = require('yamljs');
 
 // Watch the file, emit 'file-changed' event on change.
 // Contents might not have changed. Could just be time.
@@ -53,3 +55,33 @@ wss.on('connection', function connection(ws) {
   })
   
 });
+
+// Generate JSON file
+var generateJSON = function(layout_file, map_file, json_file) {
+  var master = [];
+  var layout = YAML.load(layout_file);
+  fs.readFile(map_file, 'utf8', function(err, data) {
+    if (err) throw err;
+    csvParse(data, {comment: '#'}, function (err, mapData) {
+      mapData.forEach(function(lofi) {
+        // lofi[0] = lofi ID
+        // lofi[1] = location ID
+        // lofi[2] = switch number
+        master.push({
+          "lofi_number": lofi[0],
+          "lofi_switch": lofi[2],
+          "location_number": lofi[1],
+          "location": layout.possibleLocations[lofi[1] - 1][lofi[1]].name,
+          "type": layout.possibleLocations[lofi[1] - 1][lofi[1]].type,
+          "status": "unknown"
+        });
+      });
+      fs.writeFile(json_file, JSON.stringify(master), function (err) {
+        if (err) throw err;
+        console.log('Saved JSON.');
+      });
+    });
+  });
+};
+
+generateJSON('../layout.conf', '../mapping.conf', '../master.json');
