@@ -104,16 +104,12 @@ client.on('data', function(data) {
   var switch_id;
   var sw_status;
 
-  console.log('Raw Data:\n' + data.toString('utf8'));
+//  console.log('Raw Data:\n' + data.toString('utf8'));
   idx = data.indexOf('NodeId:');
   node_id = parseInt(data.slice(idx+7, idx+10));
   idx = data.indexOf('SW');
   switch_id = parseInt(data.slice(idx+2,idx+3)) - 1;
   sw_status = ((data.slice(idx+8, idx+12)).indexOf('O') == 0) ? 'open' : 'closed';
-
-  console.log('NodeId=' + node_id);
-  console.log('SwitchId=' + switch_id);
-  console.log('Status=' + sw_status);
 
   var master;
 
@@ -138,7 +134,7 @@ client.on('data', function(data) {
       fs.writeFile(filename, JSON.stringify(master), function(err) {
         if (err)
           throw err;
-        console.log('updated JSON');
+//        console.log('updated JSON');
       });
     }
   });

@@ -80,8 +80,8 @@ var StatusList = React.createClass({
         statusClass = "success";
       }
       return (
-          <tr key={lofi.lofi_number + 's' + lofi.lofi_switch} className={statusClass}>
-          <td>{lofi.lofi_number}</td>
+          <tr key={lofi.node_id + 's' + lofi.switch_id} className={statusClass}>
+          <td>{lofi.node_id}</td>
           <td>{lofi.location}</td>
           <td>{lofi.status}</td>
         </tr>
