@@ -4,7 +4,8 @@
   "description": "LoFi status server and client webpage",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd server && node server.js"
+    "start": "cd server && node server.js",
+    "install": "cd client && browserify -t [ babelify --presets [ react ] ] client.js -o web/bundle.js"
   },
   "repository": {
     "type": "git",
