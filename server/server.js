@@ -122,11 +122,7 @@ client.on('data', function(data) {
     master = JSON.parse(data);
     master.forEach(function(loc) {
       if ((loc.node_id == node_id) && (loc.switch_id == switch_id) && (loc.status != sw_status)) {
-        if (sw_status == 1)
-          loc.status = 'open';
-        else
-          loc.status = 'closed';
-
+        loc.status = sw_status;
         update_json = 1;
       }
     });
