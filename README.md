@@ -34,6 +34,15 @@ The files in client/web/ need to be served by an http server.
 
 ## Starting the Server
 
+The server communicates with the lof_rx program via tcp port 8085 on the localhost. The output of lofi_rx can be redirected to a port using netcat.
+
+```
+sudo lofi_rx -l | nc -l -k -p 8085
+```
+
+The server can be started using:
+
 ```
 npm start
 ```
+
